@@ -1,0 +1,66 @@
+<div class="card">
+    <div class="card-header">
+        <h4>{{product ? 'Update' : 'Add'}} Product</h4>
+    </div>
+    <div class="card-body">
+    <div class ="form">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Title</label>
+                    <input [(ngModel)]="title" type="text" class="form-control">
+                    </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Price</label>
+                    <input [(ngModel)]="price"   type="number" class="form-control">
+                </div>
+            </div>
+        </div>
+        
+
+            
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Category</label>
+                    <select [(ngModel)]="category" class="form-control">
+                         <option [value]="category['id']" *ngFor="let category of categories">{{category['title']}}</option>
+                </select>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Brand</label>
+                    <select [(ngModel)]="brand" class="form-control">
+                        <option [value]="brand['id']" *ngFor="let brand of brands">{{brand['title']}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 7px;">
+            <div class="col-md-12">
+            <div class="form-group">
+                <label for="">Description</label>
+                <textarea [(ngModel)]="description"  class="form-control" rows="5"></textarea>
+                </div>
+            </div>
+        </div>
+               
+
+            <div class="card-footer">
+                <button (click)="onUpdate()"  class="btn btn-success btn-sm">{{product ? 'Update' : 'Add'}}</button>
+                <a routerLink="/product-list" style="margin-left: 5px;"  class="btn btn-danger btn-sm">Cancel</a>
+                
+                <button *ngIf="product" (click)="onUploadImage()" class="btn btn-info btn-sm float-right">Upload Image</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
